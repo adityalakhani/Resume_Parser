@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+{% load static %}
+{% load active %}
+{% load crispy_forms_tags %}
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rozgari | Get your dream Job</title>
+  <link rel="icon" href="fevv.ico">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+    integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" type="text/css"
+    media="all" />
+  <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+  <link rel="shortcut icon" href="{% static 'images/logomarkv2.ico' %}">
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+
+    .main {
+      padding: 0;
+      margin: 0;
+      border: solid 1px black;
+      width: 100%;
+      height: 500px;
+      text-align: center;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr;
+    }
+
+    .resume {
+      margin-left: 20px;
+    }
+
+    .topnav {
+      position: sticky;
+      background-color: #333;
+
+    }
+
+    /* Style the links inside the navigation bar */
+    .topnav a {
+      float: left;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+      transition-duration: 0.2s;
+    }
+
+    /* Change the color of links on hover */
+    .topnav a:hover {
+      background-color: rgb(123, 206, 221);
+      color: black;
+    }
+
+    /* Add a color to the active/current link */
+    .topnav a.active {
+      background-color: rgb(123, 206, 221);
+      color: white;
+    }
+
+    /* Right-aligned section inside the top navigation */
+    .topnav-right {
+      float: right;
+    }
+
+    table {
+
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      height: 500px;
+      width: 100%;
+      position: relative;
+      border-collapse: collapse;
+      overflow: hidden;
+
+    }
+
+    .A {
+      /* background-image: linear-gradient(to right top, #ffc6c9, #fec9b2, #eed1a2, #cfdba1, #a7e3b4, #a2e8bf, #9eecca, #9af0d5, #b9f4cf, #d5f7ce, #ecfad2, #fffddc); */
+      background-attachment: fixed;
+      background-image: url(/istockphoto-824209426-612x612.jpg);
+      background-size: cover;
+      color: #333;
+      padding: 10px;
+      scale: 0.9;
+    }
+
+    .resume {
+      width: 800px;
+    }
+
+
+    .A img {
+      height: 100%;
+      width: 100%;
+    }
+
+    h1 {
+      text-align: right;
+      padding: 10px;
+    }
+
+    .A h3 {
+      text-align: right;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      padding: 10px;
+    }
+
+    /* .table-title {
+      background-color: #e5e5e543;
+      border-radius: 12px;
+      border: 1px solid black;
+    } */
+
+    .form {
+      position: relative;
+      top: 130px;
+      text-align: right;
+      padding: 10px;
+      background-color: #e5e5e543;
+      border: 0.5px solid grey;
+      border-radius: 12px;
+    }
+
+    .submit {
+      padding: 10px;
+      margin: 10px;
+      height: 40px;
+      width: 30%;
+      background-color: #333;
+      border: none;
+      border-radius: 12px;
+
+    }
+
+    .text {
+      padding-top: 20px;
+      position: relative;
+      right: 170px;
+    }
+
+    .input {
+      padding: 10px;
+      margin: 10px;
+      width: 40%;
+      background-color: rgba(51, 51, 51, 0.566);
+      border-radius: 12px;
+      transition-duration: 0.2s;
+      color: #FFF;
+    }
+
+    .form input:hover {
+      background-color: #ddd;
+      color: #333;
+    }
+
+    .submit {
+      background-color: rgba(51, 51, 51, 0.649);
+      color: white;
+      transition-duration: 0.2s;
+    }
+
+    .B {
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      padding: 0 30%;
+      margin: 50px;
+
+    }
+
+    .C {
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      padding: 0 30%;
+      margin: 50px;
+    }
+
+    .D {
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      padding: 0 30%;
+      margin: 50px;
+
+    }
+
+    .AAAAA {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 20px;
+      margin: 0 15%;
+    }
+
+    .AAAAA h3,
+    b {
+      color: rgba(51, 51, 51, 0.841);
+    }
+
+    body {
+      background-color: #f8f8ff;
+    }
+
+    .goodresume {
+      padding: 30px;
+      width: 800px;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      bottom: 0;
+      width: 100vw;
+      font-size: 16px;
+    }
+
+    footer * {
+      box-sizing: border-box;
+      border: none;
+      outline: none;
+    }
+
+    .row {
+      padding: 1em 1em;
+    }
+
+    .row.primary {
+      display: grid;
+      grid-template-columns: 3fr 2fr 4fr;
+      align-items: stretch;
+    }
+
+    .column {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: 0 2em;
+      min-height: 15em;
+    }
+
+    h3 {
+      width: 100%;
+      text-align: left;
+      color: white;
+      font-size: 1.4em;
+      white-space: nowrap;
+    }
+
+    ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      margin: 0;
+    }
+
+    li:not(:first-child) {
+      margin-top: 0.8em;
+    }
+
+    ul li a {
+      color: #a7a7a7;
+      text-decoration: none;
+    }
+
+    ul li a:hover {
+      color: rgb(123, 206, 221);
+    }
+
+    .about p {
+      text-align: justify;
+      line-height: 2;
+      margin: 0;
+    }
+
+    input,
+    button {
+      font-size: 1em;
+      padding: 1em;
+      width: 100%;
+      border-radius: 5px;
+      margin-bottom: 5px;
+    }
+
+    button {
+      background-color: rgb(123, 206, 221);
+      color: #ffffff;
+    }
+
+    div.social {
+      display: flex;
+      justify-content: space-around;
+      font-size: 2.4em;
+      flex-direction: row;
+      margin-top: 0.5em;
+    }
+
+    .social i {
+      color: #bac6d9;
+    }
+
+    .copyright {
+      padding: 0.3em 1em;
+      background-color: #25262e;
+    }
+
+    .footer-menu {
+      float: left;
+      margin-top: 10px;
+    }
+
+    .footer-menu a {
+      color: #cfd2d6;
+      padding: 6px;
+      text-decoration: none;
+    }
+
+    .footer-menu a:hover,
+    .social i:hover {
+      background-color: rgb(123, 206, 221);
+    }
+
+    .copyright p {
+      font-size: 0.9em;
+      text-align: right;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="topnav">
+    <a class="active" href="#home">Home</a>
+    <a href="#">Resume</a>
+    <a href="#">Cover Letter</a>
+    <div class="topnav-right">
+      <a href="#">Log in</a>
+      <a href="#">Sign up</a>
+    </div>
+  </div>
+
+  <section class="A">
+    <div class="bg-image"></div>
+
+    <div class="main">
+      <!-- <divclass="table-title"> -->
+      <h1>Optimize your resume
+        to get more interviews...</h1>
+      <h3>Jobscan helps you optimize your resume for any job, highlighting the key experience and skills <br>
+        recruiters need to see.</h3>
+      <!-- </divclass> -->
+
+      <div class="container-fluid">
+        {% include 'messages.html' %}
+
+        {% if form %}
+        <div class="row">
+          <div class="col-lg-5 col-md-5"></div>
+          <div class="col-lg-6 col-md-6">
+            <form method="POST" enctype="multipart/form-data" action="{% url 'homepage' %}"
+              style="margin-top: 2%; margin-bottom: 3%">
+              {% csrf_token %}
+              {{ form|crispy }}
+              <button type="submit" id="import" name="import" class="btn btn-success"
+                style="margin-top: 2%; border-radius: 0">Upload</button>
+            </form>
+          </div>
+        </div>
+        {% elif resumes %}
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <a href="{% url 'homepage' %}">
+              <button class="btn btn-success" style="margin-bottom: 10px; border-radius: 0;">Upload More</button>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <table class="table table-bordered table-striped table-responsive">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Resume File</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Mobile Number</th>
+                <th>Education</th>
+                <th>Company Names</th>
+                <th>Designation</th>
+                <th>College Name</th>
+                <th>Total Experience in years</th>
+                <th>Skills</th>
+                <th>Experience</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for resume in resumes %}
+              <tr>
+                <td>{{forloop.counter}}</td>
+                <td><a href="{{resume.resume.url}}" target="_blank">{{resume.resume.url|truncatechars:20}}</a></td>
+                <td>{{resume.name}}</td>
+                <td>{{resume.email}}</td>
+                <td>{{resume.mobile_number}}</td>
+                <td>{{resume.education}}</td>
+                <td>{{resume.company_names}}</td>
+                <td>{{resume.designation}}</td>
+                <td>{{resume.college_name}}</td>
+                <td>{{resume.total_experience}}</td>
+                <td>{{resume.skills}}</td>
+                <td>{{resume.experience}}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+  </section>
+  <section class="AAAAA">
+    <h3>Who is the target audience for this article?</h3>
+
+    <p>Although the title is quite generic, most tips and overall content is best suited to</p>
+
+    <ol type="1">
+      <li> New grads and slightly experienced people (1–2 years of experience) targeting top product based companies.
+      </li>
+      <li> People already working or interested in working in the software/tech industry</li>
+
+    </ol>
+    <br><br>
+    <img style="width:800px;" src="https://media.tenor.com/Qx3UnOfQ2u8AAAAC/graduation-toss-cap.gif" alt="">
+    <br><br><br>
+
+
+
+    <h3>Why is it important to have a good résumé? </h3>
+    <p>Every employee is a Human Resource, and HR recruiters & existing employees together work to
+
+      recruit new employees. To oversimplify how the job market works, demand is when a business needs to scale and
+      needs more human resources and supply is the pool of people/candidates interested in working with said business.
+      <br><br>
+      Around the early 90s, for core-software roles there were fewer skilled candidates and more job opportunities so
+      nearly everyone who applied got a chance to interview. This is a simple effect of the supply & demand concept as
+      there was less supply of skilled resources but a growing demand in the IT field.
+
+      Now, things are different. There are a vast number of established companies across the world with a huge number of
+      employees under them already.
+
+      In particular, if you are in an overpopulated country like India there is a churn of new grads every year with a
+      large majority aiming for a software/tech based role with suitable compensation. Note that the over-abundance of
+      supply now is only for core-software roles based on frameworks which are established for over a decade. <br> <br>
+      There is still a deficit in the supply for emerging fields like ML, Cyber security, and some others.
+
+      While it does seem like an opportunity to some, these are emerging and candidates for such roles in big firms are
+      usually expected to have extensive studies such as PhD for them
+      <br><br>
+      With an overabundance of applicants for every opening, there are 2 side-effects
+
+    </p>
+    <img class="goodresume" width="700px"
+      src="https://resumebuilder.isourcecorp.com/wp-content/uploads/2016/06/Importance-of-a-Professionally-Written-Resume.jpg"
+      alt="">
+    <ol type="1">
+      <li>Recruiters now have to <b> make quick decisions </b>to select or reject a candidate from a large pool of
+        applicants to form a smaller subset to be assessed in more detail.</li>
+      <li>Candidates now have to <b>showcase their talent and skills </b> in an elegant way to be recognized as a
+        valuable asset to the company, even at a quick glance.</li>
+    </ol>
+
+
+    <p>Most of the Resumes have common faults in it. To mention a few</p>
+    <ol type="i">
+      <li><b> Qualifications</b> summary talks about candidate’s generic wishes and no objective historical performance.
+      </li>
+      <li><b>Selected Accomplishments </b>has all qualitative aspects without a single instance of actual recognition by
+        an institution. It is basically self assessment of the candidate, that too qualitatively with no metrics to go
+        by.</li>
+      <li><b>Experience</b> lacks a flow in the order of tasks done. It largely describes every day tasks such as
+        coding, estimating timelines which would happen in any project. There is no specific project described, nothing
+        mentioned about individual contribution, impact and result of the projects done and so on.</li>
+      <li><b>Education</b> does not have a grade/percentile score of the candidate.</li>
+    </ol>
+    <p>Simply put, lack of the above essentially implies a poor quality of the résumé. Writing great content per section
+      and then ordering the section in itself encapsulates organizing and structuring your
+
+      résumé (both are interdependent). There are finer grained factors like grammatical correctness, reverse
+      chronological ordering, priority of sections, unnecessary graphics/fonts, and so on.
+
+    </p>
+
+  </section>
+
+
+
+  <section class="creators">
+
+
+  </section>
+
+
+
+
+  <footer>
+    <div class="row primary">
+      <div class="column about">
+        <h3>Connect</h3>
+        <p>
+          <i class="fa fa-map-marker" aria-hidden="true"></i>
+          Sienna Towers, Service Road, Bangalore
+        </p>
+        <div class="social">
+          <i class="fa fa-facebook-square"></i>
+          <i class="fa fa-twitter-square"></i>
+          <i class="fa fa-linkedin-square"></i>
+          <i class="fa fa-instagram"></i>
+        </div>
+      </div>
+
+      <div class="column link">
+        <h3>Links</h3>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#blogs">Blogs</a></li>
+          <li><a href="#support">Support</a></li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="column subscribe">
+      <h3>Newsletter</h3>
+      <div>
+        <input type="email" placeholder="Your email id here" />
+        <button>Subscribe</button>
+      </div>
+    </div>
+    </div>
+
+    <div class="row copyright">
+      <div class="footer-menu">
+
+        <a href="">Home</a>
+        <a href="">F.A.Q</a>
+        <a href="">Cookies Policy</a>
+        <a href="">Terms Of Service</a>
+        <a href="">Support</a>
+
+      </div>
+      <p>Copyright &copy; 2022</p>
+    </div>
+  </footer>
+
+
+
+
+
+
+
+</body>
+
+</html>
